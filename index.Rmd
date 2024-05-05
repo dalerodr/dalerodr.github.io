@@ -1,0 +1,228 @@
+---
+title: "Daniel Alejo Rodríguez - 18/10/1995"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: united
+    storyboard: true
+    orientation: columns
+    logo: images/pictures/D.JPG
+    navbar:
+        - { icon: "fa-download", href: "https://mega.nz/file/87BGhaJR#_f6GWdJBpVbSh73XaPYn_yFm0hNGxtf5bAtpdu9ELfU", align: right }
+        - { icon: "fa-github", href: "https://github.com/dalerodr", align: right }
+        - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/", align: right }
+---
+<style>                     
+.navbar {
+  background-color:orange;
+  border-color:white;
+}
+.navbar-brand {
+color:white!important;
+}
+</style> 
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+#### ___Graduado en Estadística Aplicada (UCM) - Máster Big Data Deportivo___
+
+### PORTFOLIO - APPS Y VISUALIZACIONES 
+
+```{r}
+library(formattable)
+
+image_tile <- formatter("img",
+                        src = c("images/pictures/Basketball_app.JPG",
+                                "images/pictures/Tenis_app.JPG",
+                                "images/pictures/Goalkeeper_cluster_app.JPG",
+                                "images/pictures/Ships_app.JPG"),
+                        height = 150,
+                        NA)
+
+df <- data.frame(Image= c(1,2,3,4),
+                 App = c("Basketball app", "Tennis app", "Goalkeeper cluster app", "Ships app"),
+                 Link = c("https://dar-337152118-appshiny-r.shinyapps.io/NBA_app/",
+                          "https://dar-337152118-appshiny-r.shinyapps.io/TENNIS_APP/",
+                          "https://dar-337152118-appshiny-r.shinyapps.io/CLUSTER_PASES_PORTEROS/",
+                          "https://dar-337152118-appshiny-r.shinyapps.io/ships/"))
+
+formattable(df, 
+            align =c("l", "l"),
+            list(Image = image_tile))
+
+```
+
+
+### TRAYECTORIA LABORAL
+
+__6. ![](images/pictures/SMARTUP.PNG){width=10%} <br> (03/09/2022 - actualidad)__
+
+Departamento de proyectos de Data. Transformación y análisis de datos, elaboración de informes (calidad del dato), enriquecimiento de datos, presentación e interpretación de los resultados. Programación __Python, R, SQL. Visualización con Shiny, Power BI y Tableau__.
+
++ Scraping de diversas fuentes.
++ Análisis de datos y desarrollo con Azure y AWS.
++ Estudio de series temporales.
++ BBDD relacionales y NOSQL.
+
+<br>
+__5. ![](images/pictures/QLIP.PNG){width=7%} <br><br> (01/06/2022 - 31/08/2022)__
+
+Departamento de Proyectos. Gestión de datos mediante consultas SQL a través de la herramienta etl __Dbt__, junto con __Snowflake__ como almacenamiento de datos en la nube. __Qlik Sense__ como plataforma de visualización y creación de informes.
+
++ Elaboración de cuadros de mando.
++ Automatización de procesos con Snowflake.
+
+<br>
+__4. ![](images/pictures/TELEMAIL.PNG){width=7%} <br><br> (08/05/2020 - 31/05/2022)__
+
+Analista de datos en __TELEMAIL__ para el departamento de __Big Data__ desde ___8 mayo 2020 hasta la actualidad___. 
+
+Estudio y mantenimiento de datos sobre los que extraer información valiosa, desde la programación __(R  y Python)__ para ordenar  e insertar en bases de datos hasta la visualización de gráficas con __Power BI__. Desarrollo en entorno virtual (Azure), análisis de sentimiento y análisis predictivo (series temporales).
+
+<br>
+__3. ![](images/pictures/ENDESA.JPG){width=7%} ![](images/pictures/MANPOWER.PNG){width=5%} <br> (16/12/2019 - 07/05/2020)__
+
+Analista de datos en __ENDESA__ para el área de reporting de Planificación y Riesgos desde ___16 diciembre 2019 hasta 7 mayo 2020___.
+
+Extracción de datos de los sistemas operacionales para su posterior tratamiento, reorganización y traslado a las estructuras de reporting. Análisis del dato a través de __programación R, lenguaje SQL__ y manejo de la información desde __AWS (Redshift, S3)__.
+
+__2. ![](images/pictures/GEOBAN.PNG){width=7%} <br> (25/06/2018 - 23/01/2019)__
+
+Programador en __Santander Global Operations (GEOBAN)__ desde ___25 junio 2018 hasta 23 enero 2019___.
+
+Supervisión y explotación de datos financieros para las exigencias requeridas por el usuario (banco Santander), administración de la herramienta del proyecto MIRANDA del departamento de Control de Gestión de DATA QUALITY (DQFS). Utilización de BBDD, herramienta Essbase de Excel.
+
+__1. ![](images/pictures/SANTANDER.PNG){width=13%} <br> (25/09/2017 - 15/06/2018)__
+
+Beca de analista de Riesgos en __Banco Santander__ desde ___25 septiembre 2017 hasta 15 junio 2018___.
+
+Desarrollo de modelos de cálculo de pérdidas e impagos para distintas carteras, lo cual precisa de:
+
+1. Tratamiento de BBDD. 
+2. Programación SAS (Base, Enterprise Guide, SQL).
+3. Análisis cualitativo y cuantitativo de información.
+4. Aplicación de métodos estadísticos como regresiones, árboles de decisión, análisis clúster.
+
+
+### PROGRAMAS INFÓRMATICOS, IDIOMAS Y FORMACIÓN
+
+```{r, fig.width=25}
+library(reactable)
+library(htmltools)
+
+CATEGORIAS <- c(rep("Edición, documentación y presentación", 5), 
+                rep("Programación y análisis de datos", 9),
+                rep("Herramientas visuales de análisis y proveedores de datos deportivos", 5), 
+                rep("Gestión de bases de datos", 4), 
+                rep("Idiomas", 2))
+
+`PROGRAMAS INFORMÁTICOS` <- c("Microsoft Office", "Shiny", "Power BI", "Tableau", "Pentaho", "R", "Python", "SAS (Base, Enterpride Guide, SQL)",
+                            "SPSS", "Statgraphics", "Eviews", "Spark (R, Python)", "Excel (VBA)", "C++", "NacSport (Scout PLUS)", "Eric SPORTS",
+                            "OPTA", "Wyscout", "Instat", "MySQL", "MongoDB", "AWS (Redshift, S3)", "Azure", 
+                            "Inglés", "Francés")
+RATING <- c(4,5,5,4,4,5,5,4,3,3,3,5,5,3,4,4,4,4,4,5,4,4,5,4,3)
+
+data <- cbind.data.frame(CATEGORIAS, `PROGRAMAS INFORMÁTICOS`, RATING)
+
+rating_stars <- function(rating, max_rating = 5) {
+  star_icon <- function(empty = FALSE) {
+    tagAppendAttributes(shiny::icon("star"),
+      style = paste("color:", if (empty) "#edf0f2" else "orange"),
+      "aria-hidden" = "true"
+    )
+  }
+  rounded_rating <- floor(rating + 0.5)  # always round up
+  stars <- lapply(seq_len(max_rating), function(i) {
+    if (i <= rounded_rating) star_icon() else star_icon(empty = TRUE)
+  })
+  label <- sprintf("%s out of %s stars", rating, max_rating)
+  div(title = label, role = "img", stars)
+}
+
+reactable(
+  data,
+  groupBy = "CATEGORIAS",
+  searchable = FALSE,
+  columns = list(
+    CATEGORIAS = colDef(minWidth = 165),
+    `PROGRAMAS INFORMÁTICOS` = colDef(style = list(fontWeight = "bold")),
+    RATING = colDef(cell = function(value) rating_stars(value))
+  ),
+  defaultExpanded = TRUE,
+  defaultSorted = list(RATING = "desc")
+)
+```
+
+***
+#### <i class="fa-solid fa-up-long"></i> __Nota media Grado Estadística Aplicada -__ <span style="color: yellowgreen;">__Notable, 7.42__</span>
+#### <i class="fa-solid fa-up-long"></i> __Nota media Máster Big Data Deportivo -__ <span style="color: yellowgreen;">__Sobresaliente, 9.45__</span>
+
+<br>
+
+#### <i class="fa-solid fa-user-graduate"></i> <span style="color: tomato;">__`FORMACIÓN`__</span>
++ __2001 - 2004__: Colegio Menesiano (Madrid)
++ __2004 - 2007__: Colegio Siglo XXI, Las Rozas de Madrid
++ __2007 - 2013__: Colegio Gredos San Diego, Las Rozas de Madrid
++ __2013 - 2017__: Grado Estadística Aplicada - Universidad Complutense de Madrid
+
++ __2017 - 2018__: Curso de especialización en CONTABILIDAD FINANCIERA (250 horas)
++ __2017 - 2018__: Curso SAS Enterprise Guide y SAS Base básico (25 horas)
++ __2019 - 2020__: Curso Oficial de Anotador Federación Baloncesto de Madrid (25 horas)
++ __2019 - 2020__: Curso Programación R.
+
++ __2018 - 2019__: Máster Big Data aplicado al deporte (UCAM Murcia)
+
+<br>
+
+#### <i class="fa-solid fa-chart-line"></i> <span style="color: forestgreen;">__`TRAYECTORIA ACADÉMICA`__</span>
++ __Descripción y Exploración de Datos__ - Sobresaliente, 9
++ __Programación II__ - Sobresaliente, 9.2
++ __Azar y Probabilidad__ - Sobresaliente, 9.1
+
++ __Estimación I__ - Sobresaliente, 9
++ __Métodos de Predicción Lineal__ - Matrícula de honor, 10
+
++ __Investigación Comercial y Análisis de mercados__ - Sobresaliente, 9.1
+
++ __Técnicas Avanzadas de Predicción__ - Sobresaliente, 9
++ __Trabajo Fin de Máster: Machine Learning__ - Sobresaliente, 10
+
+### INFORMACIÓN DE CONTACTO
+
+```{r}
+library(leaflet)
+
+circle <- data.frame(lng = c(-3.89),
+                     lat = c(40.50))
+
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -3.80, lat = 40.45, zoom = 12) %>% 
+  addCircles(data = circle, radius = 2000) %>% 
+  addMarkers(data = circle,     # lng=-3.89537, lat=40.50864
+             label = "Las Rozas de Madrid",
+             labelOptions = labelOptions(noHide = F, 
+                                         direction = "bottom",
+                                         style = list(
+                                           "color" = "blue",
+                                           "font-family" = "serif",
+                                           "font-style" = "italic",
+                                           "box-shadow" = "3px 3px rgba(0,0,0,0.25)",
+                                           "font-size" = "12px",
+                                           "border-color" = "rgba(0,0,0,0.5)"
+                                           )
+                                         )
+  )
+```
+
+***
++ ![](images/pictures/foto.JPG)
+<br><br>
++ _<a href="mailto:dalejo18@outlook.com">email</a>_
++ **Connect with me** 👉 <a href="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" align="center" height="20" width="20"/> </a>
++ __Las Rozas de Madrid, 28232 (*Madrid*)__
+
+
+
+
