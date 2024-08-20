@@ -1,5 +1,5 @@
 ---
-title: "Daniel Alejo Rodríguez - 18/10/1995"
+title: "Daniel Alejo Rodríguez - 18/10/1995 🧑‍🎓 Graduado en Estadística Aplicada (UCM) ⏩ Máster Big Data Deportivo"
 output: 
   flexdashboard::flex_dashboard:
     theme: united
@@ -7,137 +7,201 @@ output:
     orientation: columns
     logo: images/pictures/D.JPG
     navbar:
-        - { icon: "fa-download", href: "https://mega.nz/file/87BGhaJR#_f6GWdJBpVbSh73XaPYn_yFm0hNGxtf5bAtpdu9ELfU", align: right }
+        - { icon: "fa-download", href: "https://mega.nz/file/cqIVkBbb#it7HaEdjZrXHYa_L5CtHN79VSwywO-3nvTU5ycGfgv0", align: right }
         - { icon: "fa-github", href: "https://github.com/dalerodr", align: right }
         - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/", align: right }
 ---
+
+```{=html}
 <style>                     
+
 .navbar {
   background-color:orange;
   border-color:white;
 }
+
 .navbar-brand {
 color:white!important;
 }
-</style> 
+
+.storyboard-nav .sbframelist {
+        margin: auto;
+        width: 65%;
+        border: 3px dotted orange;
+        padding: 10px;
+        height: 85px;
+        overflow: hidden;
+        text-shadow: none;
+        margin-top: 5px;
+        margin-bottom: 5px;
+}
+
+.storyboard-nav .sbnext, .storyboard-nav .sbprev {
+    float: center;
+    width: 0%;
+    height: 0px;
+    font-size: 0px;
+}
+
+.chart-shim {
+    width: 100%;        /* Ancho del contenedor */
+    overflow-x: auto;   /* Desbordamiento horizontal */
+}
+
+. lightable-paper lightable-striped,  lightable-paper lightable-hover {
+    width: 100%;        /* Ancho de la tabla */
+}
+
+</style>
+```
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(kableExtra)
+library(dplyr)
+library(reactable)
+library(htmltools)
+library(leaflet)
 ```
 
-#### ___Graduado en Estadística Aplicada (UCM) - Máster Big Data Deportivo___
-
-### PORTFOLIO - APPS Y VISUALIZACIONES 
+### PORTFOLIO - VISUALIZACIONES
 
 ```{r}
-library(formattable)
+df <- data.frame(Image = "",
+                 App = c("👉 Basketball app 🏀", "👉 Tennis app🎾", "👉 Goalkeeper cluster app ⚽", "👉 Ships app ⛵"))
 
-image_tile <- formatter("img",
-                        src = c("images/pictures/Basketball_app.JPG",
-                                "images/pictures/Tenis_app.JPG",
-                                "images/pictures/Goalkeeper_cluster_app.JPG",
-                                "images/pictures/Ships_app.JPG"),
-                        height = 150,
-                        NA)
-
-df <- data.frame(Image= c(1,2,3,4),
-                 App = c("Basketball app", "Tennis app", "Goalkeeper cluster app", "Ships app"),
-                 Link = c("https://dar-337152118-appshiny-r.shinyapps.io/NBA_app/",
+df %>% 
+  kbl(booktabs = T) %>%
+  kable_paper("hover", full_width = F, font_size = 22) %>%
+  row_spec(0, align = "center", bold = TRUE, underline = TRUE, color = 'orange') %>% 
+  row_spec(1:4, align = "center", bold = TRUE, italic = TRUE) %>% 
+  column_spec(1, image = spec_image(
+                         c("images/pictures/Basketball_app.JPG",
+                           "images/pictures/Tenis_app.JPG",
+                           "images/pictures/Goalkeeper_cluster_app.JPG",
+                           "images/pictures/Ships_app.JPG")
+                         , 800, 400)) %>% 
+  column_spec(2, link = c("https://dar-337152118-appshiny-r.shinyapps.io/NBA_app/",
                           "https://dar-337152118-appshiny-r.shinyapps.io/TENNIS_APP/",
                           "https://dar-337152118-appshiny-r.shinyapps.io/CLUSTER_PASES_PORTEROS/",
-                          "https://dar-337152118-appshiny-r.shinyapps.io/ships/"))
-
-formattable(df, 
-            align =c("l", "l"),
-            list(Image = image_tile))
+                          "https://dar-337152118-appshiny-r.shinyapps.io/ships/")) %>% 
+footnote(general = "[🚀 MARCA News📃 Luka Doncic's journey to Rookie of the Year](https://www.marca.com/blogs/master-big-data-deportivo/2019/02/04/luka-doncic-camino-al-rookie-del-ano.html)",
+         general_title = "*Note: ",
+         footnote_as_chunk = T,
+         title_format = c("italic"))
 
 ```
-
 
 ### TRAYECTORIA LABORAL
 
-__6. ![](images/pictures/SMARTUP.PNG){width=10%} <br> (03/09/2022 - actualidad)__
+```{r}
+df <- data.frame(Company = "",
+                 Position_Job = c("Data Engineer",
+                                  "Data Engineer \\
+                                  (8 meses)",
+                                  "Big Data Analyst \\
+                                  (3 meses)",
+                                  "Big Data Analyst \\
+                                  (2 años y 1 mes)",
+                                  "Data Analyst \\
+                                  (6 meses)",
+                                  "Programador \\
+                                  (8 meses)",
+                                  "Beca de analista \\
+                                  (10 meses)"),
+                 Start_Period = c("18/04/2023", "03/09/2022", "01/06/2022", "08/05/2020", "16/12/2019", "25/06/2018", "25/09/2017"),
+                 End_Period = c("actualidad", "14/04/2023", "31/08/2022", "31/05/2022", "07/05/2020", "23/01/2019", "15/06/2018"),
+                 Description = c("🚀 Ingeniero de datos en Knowmad mood (HAVAS Media Group). \\
+                                 Automatización de procesos (extracción, transformación y almacenamiento). \\
+                                 Desarrollo y optimización de pipelines de datos.",
+                                 "🔧 Ingeniero de datos en SMARTUP en el departamento de proyectos de Data. \\
+                                 Transformación y análisis de datos, elaboración de informes (calidad del dato), \\
+                                 enriquecimiento de datos, presentación e interpretación de los resultados.",
+                                 "🔢 Analista de datos en QLIP para el departamento de Proyectos. \\
+                                 Gestión de datos, desarrollo a través de la herramienta etl Dbt, \\
+                                 junto con Snowflake como almacenamiento de datos en la nube.",
+                                 "🔢 Analista de datos en TELEMAIL para el departamento de Big Data.",
+                                 "🔢 Analista de datos en ENDESA para el área de reporting de Planificación y Riesgos.",
+                                 "🧑‍💻 Programador en Santander Global Operations (GEOBAN). \\
+                                Supervisión y explotación de datos financieros para las exigencias requeridas \\
+                                por el usuario (banco Santander).",
+                                 "🧑‍💼 Beca de analista de Riesgos en Banco Santander. \\
+                                 Desarrollo de modelos de cálculo de pérdidas e impagos para distintas carteras."),
+                 Key_points = c("➡️ Infraestructura Google Cloud (Workflows, Dataform, Bigquery, Cloud Functions, Cloud Run). \\
+                                ➡️ Control de versiones: GitLab, CICD. \\
+                                ➡️ Despliegue: Implementación en producción (Acceso APIs y automatización de datos) \\
+                                ➡️ Tecnologías: GCP, Databricks, Streamsets.",
+                                "👉 Scraping de diversas fuentes.\\
+                                👉 Análisis de datos y desarrollo con Azure y AWS.\\
+                                👉 Estudio de series temporales.\\
+                                👉 Programación Python, R, SQL (BBDD relacionales y NOSQL). \\
+                                👉 Visualización con Shiny, Power BI y Tableau.",
+                                "➡️ Elaboración de cuadros de mando.\\
+                                ➡️ Automatización de procesos con Snowflake. \\
+                                ➡️ Qlik Sense como plataforma de visualización y creación de informes.",
+                                "👉 Estudio y mantenimiento de datos sobre los que extraer información valiosa, desde la programación (R  y Python) para ordenar  e insertar en bases de datos hasta la visualización de gráficas con Power BI. Desarrollo en entorno virtual (Azure), análisis de sentimiento y análisis predictivo (series temporales).",
+                                "➡️ Extracción de datos de los sistemas operacionales para su posterior tratamiento, reorganización y traslado a las estructuras de reporting. \\
+                                 ➡️ Análisis de datos a través de programación R, lenguaje SQL y manejo de la información desde AWS (Redshift, S3).",
+                                "👉 Administración de la herramienta del proyecto MIRANDA del departamento de Control de Gestión de DATA QUALITY (DQFS). \\
+                                 👉 Utilización de BBDD, herramienta Essbase de Excel.",
+                                "1️⃣ Tratamiento de BBDD. \\
+                                 2️⃣ Programación SAS (Base, Enterprise Guide, SQL). \\
+                                 3️⃣ Análisis cualitativo y cuantitativo de información. \\
+                                 4️⃣ Aplicación de métodos estadísticos como regresiones, árboles de decisión, análisis clúster."))
 
-Departamento de proyectos de Data. Transformación y análisis de datos, elaboración de informes (calidad del dato), enriquecimiento de datos, presentación e interpretación de los resultados. Programación __Python, R, SQL. Visualización con Shiny, Power BI y Tableau__.
 
-+ Scraping de diversas fuentes.
-+ Análisis de datos y desarrollo con Azure y AWS.
-+ Estudio de series temporales.
-+ BBDD relacionales y NOSQL.
+df %>% 
+  kbl(booktabs = T) %>%
+  kable_paper("striped", full_width = F, font_size = 16) %>%
+  row_spec(0, align = "center", bold = TRUE, underline = TRUE, color = 'orange') %>% 
+  row_spec(1, bold = TRUE, italic = TRUE, background = '#C2FFB9',
+           extra_css = "border-bottom: 3px solid green; border-style: dotted;") %>% 
+  row_spec(seq(2,7), bold = TRUE, italic = TRUE, background = '#FFB7B7') %>%  
+  column_spec(1, image = spec_image(
+                         c("images/pictures/knowmad_mood-havas.png",
+                           "images/pictures/SMARTUP.png",
+                           "images/pictures/QLIP.png",
+                           "images/pictures/TELEMAIL.png",
+                           "images/pictures/ENDESA_MANPOWER.png",
+                           "images/pictures/GEOBAN.png",
+                           "images/pictures/SANTANDER.png")
+                         , 450, 150),
+              background = '#FFFFFF') %>% 
+  column_spec(c(3,5), extra_css = "border-top-left-radius: 10px; border-bottom-left-radius: 10px;") %>% 
+  column_spec(c(4,6), extra_css = "border-top-right-radius: 10px; border-bottom-right-radius: 10px;") %>%
+  column_spec(2, extra_css = "text-align: center", width = "8em") %>% 
+  column_spec(c(5,6), width = "40em") 
 
-<br>
-__5. ![](images/pictures/QLIP.PNG){width=7%} <br><br> (01/06/2022 - 31/08/2022)__
+```
 
-Departamento de Proyectos. Gestión de datos mediante consultas SQL a través de la herramienta etl __Dbt__, junto con __Snowflake__ como almacenamiento de datos en la nube. __Qlik Sense__ como plataforma de visualización y creación de informes.
+### PROGRAMAS INFÓRMATICOS, IDIOMAS Y FORMACIÓN {data-commentary-width="600"}
 
-+ Elaboración de cuadros de mando.
-+ Automatización de procesos con Snowflake.
+```{r}
+CATEGORIAS <- c(rep("1. Entornos Cloud", 3),
+                rep("2. Programación y análisis de datos", 7), 
+                rep("4. Gestión de bases de datos", 3),
+                rep("3. Visualización y presentación de resultados", 3),
+                rep("5. Idiomas", 2),
+                rep("6. Proveedores de datos deportivos", 5))
 
-<br>
-__4. ![](images/pictures/TELEMAIL.PNG){width=7%} <br><br> (08/05/2020 - 31/05/2022)__
-
-Analista de datos en __TELEMAIL__ para el departamento de __Big Data__ desde ___8 mayo 2020 hasta la actualidad___. 
-
-Estudio y mantenimiento de datos sobre los que extraer información valiosa, desde la programación __(R  y Python)__ para ordenar  e insertar en bases de datos hasta la visualización de gráficas con __Power BI__. Desarrollo en entorno virtual (Azure), análisis de sentimiento y análisis predictivo (series temporales).
-
-<br>
-__3. ![](images/pictures/ENDESA.JPG){width=7%} ![](images/pictures/MANPOWER.PNG){width=5%} <br> (16/12/2019 - 07/05/2020)__
-
-Analista de datos en __ENDESA__ para el área de reporting de Planificación y Riesgos desde ___16 diciembre 2019 hasta 7 mayo 2020___.
-
-Extracción de datos de los sistemas operacionales para su posterior tratamiento, reorganización y traslado a las estructuras de reporting. Análisis del dato a través de __programación R, lenguaje SQL__ y manejo de la información desde __AWS (Redshift, S3)__.
-
-__2. ![](images/pictures/GEOBAN.PNG){width=7%} <br> (25/06/2018 - 23/01/2019)__
-
-Programador en __Santander Global Operations (GEOBAN)__ desde ___25 junio 2018 hasta 23 enero 2019___.
-
-Supervisión y explotación de datos financieros para las exigencias requeridas por el usuario (banco Santander), administración de la herramienta del proyecto MIRANDA del departamento de Control de Gestión de DATA QUALITY (DQFS). Utilización de BBDD, herramienta Essbase de Excel.
-
-__1. ![](images/pictures/SANTANDER.PNG){width=13%} <br> (25/09/2017 - 15/06/2018)__
-
-Beca de analista de Riesgos en __Banco Santander__ desde ___25 septiembre 2017 hasta 15 junio 2018___.
-
-Desarrollo de modelos de cálculo de pérdidas e impagos para distintas carteras, lo cual precisa de:
-
-1. Tratamiento de BBDD. 
-2. Programación SAS (Base, Enterprise Guide, SQL).
-3. Análisis cualitativo y cuantitativo de información.
-4. Aplicación de métodos estadísticos como regresiones, árboles de decisión, análisis clúster.
-
-
-### PROGRAMAS INFÓRMATICOS, IDIOMAS Y FORMACIÓN
-
-```{r, fig.width=25}
-library(reactable)
-library(htmltools)
-
-CATEGORIAS <- c(rep("Edición, documentación y presentación", 5), 
-                rep("Programación y análisis de datos", 9),
-                rep("Herramientas visuales de análisis y proveedores de datos deportivos", 5), 
-                rep("Gestión de bases de datos", 4), 
-                rep("Idiomas", 2))
-
-`PROGRAMAS INFORMÁTICOS` <- c("Microsoft Office", "Shiny", "Power BI", "Tableau", "Pentaho", "R", "Python", "SAS (Base, Enterpride Guide, SQL)",
-                            "SPSS", "Statgraphics", "Eviews", "Spark (R, Python)", "Excel (VBA)", "C++", "NacSport (Scout PLUS)", "Eric SPORTS",
-                            "OPTA", "Wyscout", "Instat", "MySQL", "MongoDB", "AWS (Redshift, S3)", "Azure", 
-                            "Inglés", "Francés")
-RATING <- c(4,5,5,4,4,5,5,4,3,3,3,5,5,3,4,4,4,4,4,5,4,4,5,4,3)
+`PROGRAMAS INFORMÁTICOS` <- c("Google Cloud", "Azure", "AWS","R", "Python", "SAS (Base, Enterpride Guide, SQL)", "SPSS", "Spark (R, Python)", "Excel (VBA)", "C++", "MySQL", "MongoDB", "AWS (Redshift)", "Shiny", "Power BI", "Tableau", "Inglés", "Francés", "NacSport (Scout PLUS)", "Eric SPORTS", "OPTA", "Wyscout", "Instat")
+RATING <- c(4,4,4,5,5,4,3,5,4,3,5,4,4,5,4,4,4,3,4,4,4,4,4)
 
 data <- cbind.data.frame(CATEGORIAS, `PROGRAMAS INFORMÁTICOS`, RATING)
 
-rating_stars <- function(rating, max_rating = 5) {
-  star_icon <- function(empty = FALSE) {
-    tagAppendAttributes(shiny::icon("star"),
-      style = paste("color:", if (empty) "#edf0f2" else "orange"),
+rating_bolts <- function(rating, max_rating = 5) {
+  bolt_icon <- function(empty = FALSE) {
+    tagAppendAttributes(shiny::icon("bolt"),
+      style = paste("color:", if (empty) "#edf0f2" else "gold"),
       "aria-hidden" = "true"
     )
   }
   rounded_rating <- floor(rating + 0.5)  # always round up
-  stars <- lapply(seq_len(max_rating), function(i) {
-    if (i <= rounded_rating) star_icon() else star_icon(empty = TRUE)
+  bolts <- lapply(seq_len(max_rating), function(i) {
+    if (i <= rounded_rating) bolt_icon() else bolt_icon(empty = TRUE)
   })
-  label <- sprintf("%s out of %s stars", rating, max_rating)
-  div(title = label, role = "img", stars)
+  label <- sprintf("%s out of %s bolt", rating, max_rating)
+  div(title = label, role = "img", bolts)
 }
 
 reactable(
@@ -145,62 +209,90 @@ reactable(
   groupBy = "CATEGORIAS",
   searchable = FALSE,
   columns = list(
-    CATEGORIAS = colDef(minWidth = 165),
-    `PROGRAMAS INFORMÁTICOS` = colDef(style = list(fontWeight = "bold")),
-    RATING = colDef(cell = function(value) rating_stars(value))
+    CATEGORIAS = colDef(minWidth = 100, align = "left"),
+    `PROGRAMAS INFORMÁTICOS` = colDef(style = list(fontWeight = "bold"),
+                                      aggregate = "unique",
+                                      align = "left"
+                                      ),
+    RATING = colDef(
+      cell = function(value) rating_bolts(value),
+      aggregate = "mean",
+      aggregated = JS("function(cellInfo) {
+        return cellInfo.value.toLocaleString('es-ES', { maximumFractionDigits: 2 })
+      }"),
+      align = "center"
+    )
   ),
   defaultExpanded = TRUE,
-  defaultSorted = list(RATING = "desc")
+  defaultSorted = list(CATEGORIAS = "asc", RATING = "desc")
 )
 ```
 
-***
-#### <i class="fa-solid fa-up-long"></i> __Nota media Grado Estadística Aplicada -__ <span style="color: yellowgreen;">__Notable, 7.42__</span>
-#### <i class="fa-solid fa-up-long"></i> __Nota media Máster Big Data Deportivo -__ <span style="color: yellowgreen;">__Sobresaliente, 9.45__</span>
+------------------------------------------------------------------------
+
+#### <i class="fa-solid fa-up-long"></i> **Nota media Grado Estadística Aplicada -** [**Notable, 7.42**]{style="color: yellowgreen;"}
+
+#### <i class="fa-solid fa-up-long"></i> **Nota media Máster Big Data Deportivo -** [**Sobresaliente, 9.45**]{style="color: yellowgreen;"}
 
 <br>
 
-#### <i class="fa-solid fa-user-graduate"></i> <span style="color: tomato;">__`FORMACIÓN`__</span>
-+ __2001 - 2004__: Colegio Menesiano (Madrid)
-+ __2004 - 2007__: Colegio Siglo XXI, Las Rozas de Madrid
-+ __2007 - 2013__: Colegio Gredos San Diego, Las Rozas de Madrid
-+ __2013 - 2017__: Grado Estadística Aplicada - Universidad Complutense de Madrid
+#### <i class="fa-solid fa-user-graduate"></i> [**`FORMACIÓN`**]{style="color: tomato;"}
 
-+ __2017 - 2018__: Curso de especialización en CONTABILIDAD FINANCIERA (250 horas)
-+ __2017 - 2018__: Curso SAS Enterprise Guide y SAS Base básico (25 horas)
-+ __2019 - 2020__: Curso Oficial de Anotador Federación Baloncesto de Madrid (25 horas)
-+ __2019 - 2020__: Curso Programación R.
+-   **2001 - 2004**: Colegio Menesiano (Madrid)
 
-+ __2018 - 2019__: Máster Big Data aplicado al deporte (UCAM Murcia)
+-   **2004 - 2007**: Colegio Siglo XXI, Las Rozas de Madrid
+
+-   **2007 - 2013**: Colegio Gredos San Diego, Las Rozas de Madrid
+
+-   **2013 - 2017**: Grado Estadística Aplicada - Universidad Complutense de Madrid
+
+-   **2017 - 2018**: Curso de especialización en CONTABILIDAD FINANCIERA (250 horas)
+
+-   **2017 - 2018**: Curso SAS Enterprise Guide y SAS Base básico (25 horas)
+
+-   **2019 - 2020**: Curso Oficial de Anotador Federación Baloncesto de Madrid (25 horas)
+
+-   **2019 - 2020**: Curso Programación R.
+
+-   **2018 - 2019**: Máster Big Data aplicado al deporte (UCAM Murcia)
+
+-   **2024**:  <a href="https://www.credly.com/badges/7cda648c-27e8-41b5-abd1-f51ef93392b9/linked_in?t=shga5b" target="blank"><img src="images/pictures/astronomer-certification-apache-airflow-fundamentals-20240730.png" alt="https://www.credly.com/badges/7cda648c-27e8-41b5-abd1-f51ef93392b9/linked_in?t=shga5b" align="center" height="35" width="35"/>
+</a> [**Astronomer - Certification for Apache Airflow Fundamentals**](https://mega.nz/file/MyhBHTaR#WimfF9WvmpmNbD1MHP7kAJCLzkM4JSeqru_IZDSngBY)
+ 
+-   **2024**:  <a href="https://credentials.databricks.com/f59b5c3e-6b6d-43e1-b557-34e24a209aed#gs.du6ngl" target="blank"><img src="images/pictures/databricks-certification-generative-ai-fundamentals-20240816.png" alt="https://credentials.databricks.com/f59b5c3e-6b6d-43e1-b557-34e24a209aed#gs.du6ngl" align="center" height="35" width="35"/> 
+</a> [**Databricks Academy Accreditation - Generative AI Fundamentals**](https://mega.nz/file/QiQSmAAT#yoOR-mzb4kTn3Y6DdW74OnhAfqCgVNUDD06WupYmV5s)
 
 <br>
 
-#### <i class="fa-solid fa-chart-line"></i> <span style="color: forestgreen;">__`TRAYECTORIA ACADÉMICA`__</span>
-+ __Descripción y Exploración de Datos__ - Sobresaliente, 9
-+ __Programación II__ - Sobresaliente, 9.2
-+ __Azar y Probabilidad__ - Sobresaliente, 9.1
+#### <i class="fa-solid fa-chart-line"></i> [**`TRAYECTORIA ACADÉMICA`**]{style="color: forestgreen;"}
 
-+ __Estimación I__ - Sobresaliente, 9
-+ __Métodos de Predicción Lineal__ - Matrícula de honor, 10
+-   **Descripción y Exploración de Datos** - Sobresaliente, 9
 
-+ __Investigación Comercial y Análisis de mercados__ - Sobresaliente, 9.1
+-   **Programación II** - Sobresaliente, 9.2
 
-+ __Técnicas Avanzadas de Predicción__ - Sobresaliente, 9
-+ __Trabajo Fin de Máster: Machine Learning__ - Sobresaliente, 10
+-   **Azar y Probabilidad** - Sobresaliente, 9.1
 
-### INFORMACIÓN DE CONTACTO
+-   **Estimación I** - Sobresaliente, 9
+
+-   **Métodos de Predicción Lineal** - Matrícula de honor, 10
+
+-   **Investigación Comercial y Análisis de mercados** - Sobresaliente, 9.1
+
+-   **Técnicas Avanzadas de Predicción** - Sobresaliente, 9
+
+-   **Trabajo Fin de Máster: Machine Learning** - Sobresaliente, 10
+
+### INFORMACIÓN DE CONTACTO {data-commentary-width="400"}
 
 ```{r}
-library(leaflet)
-
 circle <- data.frame(lng = c(-3.89),
                      lat = c(40.50))
 
 leaflet() %>%
   addTiles() %>%
-  setView(lng = -3.80, lat = 40.45, zoom = 12) %>% 
+  flyTo(lng = -3.80, lat = 40.45, zoom = 12) %>% 
   addCircles(data = circle, radius = 2000) %>% 
-  addMarkers(data = circle,     # lng=-3.89537, lat=40.50864
+  addMarkers(data = circle,
              label = "Las Rozas de Madrid",
              labelOptions = labelOptions(noHide = F, 
                                          direction = "bottom",
@@ -216,13 +308,36 @@ leaflet() %>%
   )
 ```
 
-***
-+ ![](images/pictures/foto.JPG)
-<br><br>
-+ _<a href="mailto:dalejo18@outlook.com">email</a>_
-+ **Connect with me** 👉 <a href="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" align="center" height="20" width="20"/> </a>
-+ __Las Rozas de Madrid, 28232 (*Madrid*)__
+------------------------------------------------------------------------
 
+-   ![](images/pictures/foto.JPG) <br><br>
+-   📫 **How to reach me** <a href="mailto:dalejo18@outlook.com">email</a>
+-   📳 <button id="boton-toggle-twitter" onclick="toggleTwitter()">Show Twitter</button> <a href="https://twitter.com/" class="twitter">@danielalejo18</a>
+-   📄 **Connect with me** 👉 <a href="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/" align="center" height="20" width="20"/> </a>
+-   **Las Rozas de Madrid, 28232 (*Madrid*)**
 
+```{=html}
+<script>
+var TwitterVisible = true;                   // Estado inicial: oculto
 
+function toggleTwitter() {
+  var twitter = document.getElementsByClassName('twitter');
+  var boton = document.getElementById('boton-toggle-twitter');
+  for (var i = 0; i < twitter.length; i++) {
+    if (TwitterVisible) {
+      twitter[i].style.display = 'none';     // Ocultar el número de twitter
+      boton.textContent = 'Show Twitter'; // Cambiar el texto del botón
+    } else {
+      twitter[i].style.display = 'inline';   // Mostrar el número de twitter
+      boton.textContent = 'Hide Twitter'; // Cambiar el texto del botón
+    }
+  }
+  TwitterVisible = !TwitterVisible;         // Invertir el estado
+}
 
+// Ocultar el número de teléfono al cargar la página
+window.onload = function() {
+  toggleTwitter();
+};
+</script>
+```
