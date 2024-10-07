@@ -7,7 +7,7 @@ output:
     orientation: columns
     logo: images/pictures/D.JPG
     navbar:
-        - { icon: "fa-download", href: "https://mega.nz/file/cqIVkBbb#it7HaEdjZrXHYa_L5CtHN79VSwywO-3nvTU5ycGfgv0", align: right }
+        - { icon: "fa-download", href: "https://mega.nz/file/V2AF3IZR#yWWTOy4uq8nqLasxcHAKrEcjcDrEo0J06uULdigcUdo", align: right }
         - { icon: "fa-github", href: "https://github.com/dalerodr", align: right }
         - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/daniel-alejo-rodriguez-2601ba161/", align: right }
 ---
