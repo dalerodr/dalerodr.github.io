@@ -262,6 +262,12 @@ reactable(
 -   **2024**:  <a href="https://credentials.databricks.com/f59b5c3e-6b6d-43e1-b557-34e24a209aed#gs.du6ngl" target="blank"><img src="images/pictures/databricks-certification-generative-ai-fundamentals-20240816.png" alt="https://credentials.databricks.com/f59b5c3e-6b6d-43e1-b557-34e24a209aed#gs.du6ngl" align="center" height="35" width="35"/> 
 </a> [**Databricks Academy Accreditation - Generative AI Fundamentals**](https://mega.nz/file/QiQSmAAT#yoOR-mzb4kTn3Y6DdW74OnhAfqCgVNUDD06WupYmV5s)
 
+-   **2025**:  <a href="https://mega.nz/file/RiYWyJoC#4bkmNWFoGfe_rsvl9Dwsycs4UjNez49ihwJG0GMXpI4" target="blank"><img src="https://datos.ninja/wp-content/uploads/2025/06/Google-Cloud-Data-Engineer-badge-1024x1024.png" alt="https://datos.ninja/wp-content/uploads/2025/06/Google-Cloud-Data-Engineer-badge-1024x1024.png" align="center" height="35" width="35"/> 
+</a> [**Professional Data Engineer Certification**](https://mega.nz/file/RiYWyJoC#4bkmNWFoGfe_rsvl9Dwsycs4UjNez49ihwJG0GMXpI4)
+
+-   **2025**:  <a href="https://mega.nz/file/MnpjybID#yLB2aQxmvwxqxxd2G9zF8E6ArTqkXwydavysfFv3nkI" target="blank"><img src="https://static.platzi.com/media/courses/OG-big-data.png" alt="https://static.platzi.com/media/courses/OG-big-data.png" align="center" height="35" width="50"/> 
+</a> [**Big Data & Machine Learning with GCP**](https://mega.nz/file/MnpjybID#yLB2aQxmvwxqxxd2G9zF8E6ArTqkXwydavysfFv3nkI)
+
 <br>
 
 #### <i class="fa-solid fa-chart-line"></i> [**`TRAYECTORIA ACADÉMICA`**]{style="color: forestgreen;"}
